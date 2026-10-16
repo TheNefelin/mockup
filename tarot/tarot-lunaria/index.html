@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Esencias Arcanas · Lecturas de tarot en línea</title>
+  <meta name="description" content="Lecturas de tarot en línea, claras y sin juicios. Reserva tu sesión, conectamos por videollamada y te llevas una lectura con preguntas para seguir pensando." />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0912'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23d8b25a'%3E%E2%98%BE%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            night: '#0a0912',
+            deep: '#120f1d',
+            veil: '#1b1628',
+            mist: '#2a2340',
+            gold: '#d8b25a',
+            goldsoft: '#e8cf94',
+            ever: '#9a8fb5',
+            star: '#cfc7e6',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            body: ['Jost', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { color-scheme: dark; }
+    .scroll-mt-nav { scroll-margin-top: 80px; }
+    .glow-gold { text-shadow: 0 0 26px rgba(216, 178, 90, 0.45); }
+    .hero-fade { animation: heroFade 1.2s ease-out both; }
+    @keyframes heroFade {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .js .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-fade { animation: none; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body class="bg-night text-star font-body antialiased selection:bg-gold/30">
+
+  <!-- NAV -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-gold/10 bg-night/70 backdrop-blur-md">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5" aria-label="Principal">
+      <a href="#inicio" class="flex items-center gap-3">
+        <span class="grid h-10 w-10 place-items-center rounded-full border border-gold/50 bg-veil text-lg text-gold" aria-hidden="true">☾</span>
+        <span class="font-display text-2xl font-semibold tracking-[0.18em] text-star">ESENCIAS ARCANAS</span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="#lecturas" class="hidden text-sm font-medium text-ever transition hover:text-star sm:inline">Lecturas</a>
+        <a href="#proceso" class="hidden text-sm font-medium text-ever transition hover:text-star sm:inline">Cómo funciona</a>
+        <a href="#diario" class="hidden text-sm font-medium text-ever transition hover:text-star md:inline">Diario</a>
+        <a href="#contacto" class="rounded-sm border border-gold/60 px-5 py-2 text-sm font-medium text-gold transition hover:bg-gold hover:text-night">Reservar</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="relative isolate flex min-h-[100svh] items-center overflow-hidden pt-28">
+    <div class="absolute inset-0 -z-10" aria-hidden="true">
+      <img
+        src="https://images.pexels.com/photos/2890467/pexels-photo-2890467.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        alt=""
+        class="absolute inset-0 h-full w-full object-cover object-center" />
+      <video
+        id="bg-video"
+        class="absolute inset-0 h-full w-full object-cover object-center"
+        autoplay muted loop playsinline preload="metadata"
+        poster="https://images.pexels.com/photos/2890467/pexels-photo-2890467.jpeg?auto=compress&cs=tinysrgb&w=1920">
+        <source src="https://videos.pexels.com/video-files/28870775/12500359_1280_720_24fps.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-0" style="background:radial-gradient(120% 90% at 50% 20%, rgba(10,9,18,0.35) 0%, rgba(10,9,18,0.78) 60%, rgba(10,9,18,0.98) 100%)"></div>
+      <div class="absolute inset-x-0 bottom-0 h-40" style="background:linear-gradient(180deg, rgba(10,9,18,0) 0%, #0a0912 100%)"></div>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-4xl px-5 text-center">
+      <div class="hero-fade">
+        <p class="mb-6 flex items-center justify-center gap-3 text-xs font-medium uppercase tracking-[0.45em] text-goldsoft">
+          <span aria-hidden="true">✦</span>
+          tarot en línea
+          <span aria-hidden="true">✦</span>
+        </p>
+        <h1 class="font-display text-5xl font-semibold leading-[1.05] text-star drop-shadow-[0_2px_30px_rgba(0,0,0,0.8)] sm:text-6xl lg:text-7xl">
+          Las cartas ya conocen<br />
+          <span class="italic text-gold glow-gold">tu pregunta.</span>
+        </h1>
+        <p class="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-ever">
+          Lecturas claras y sin juicios. Reserva tu sesión, nos conectamos por videollamada
+          y te llevas una lectura con preguntas para seguir pensando.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center justify-center gap-4">
+          <a href="#contacto" class="rounded-sm bg-gold px-8 py-3.5 font-medium text-night transition hover:bg-goldsoft">Reservar mi lectura</a>
+          <a href="#proceso" class="rounded-sm border border-star/25 px-8 py-3.5 font-medium text-star transition hover:border-gold hover:text-gold">Ver cómo funciona</a>
+        </div>
+        <p class="mt-9 text-xs font-medium uppercase tracking-[0.3em] text-ever">
+          <span class="text-gold">Por videollamada</span> ·
+          <span class="text-gold">Reserva flexible</span> ·
+          <span class="text-gold">Respuesta en 24 h</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESENTACIÓN -->
+  <section id="quien" class="scroll-mt-nav border-t border-gold/10 bg-deep py-24">
+    <div class="mx-auto grid max-w-6xl items-center gap-12 px-5 lg:grid-cols-[0.9fr_1.1fr]">
+      <div class="reveal relative">
+        <img
+          src="https://images.pexels.com/photos/31584091/pexels-photo-31584091.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          alt="Carta de tarot sobre una mesa con velas y cristales"
+          loading="lazy"
+          class="aspect-[4/5] w-full rounded-sm border border-mist object-cover" />
+        <div class="pointer-events-none absolute -bottom-4 -right-3 hidden rounded-sm border border-gold/30 bg-night/90 px-5 py-3 backdrop-blur-sm sm:block">
+          <p class="font-display text-xl font-semibold text-gold">+400 lecturas</p>
+          <p class="text-xs uppercase tracking-widest text-ever">acompañando procesos</p>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <p class="mb-3 text-xs font-medium uppercase tracking-[0.4em] text-goldsoft">Quién lee las cartas</p>
+        <h2 class="font-display text-4xl font-semibold text-star sm:text-5xl">Acompaño, no adivino el futuro</h2>
+        <p class="mt-5 text-lg leading-relaxed text-ever">
+          En <span class="text-star">Esencias Arcanas</span> leo el tarot. Mi trabajo no es decirte
+          qué va a pasar, sino darte un espejo para mirar lo que ya intuyes. Cada sesión es un
+          espacio tranquilo, confidencial y sin apuro.
+        </p>
+        <ul class="mt-8 space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true"></span>
+            <span class="text-sm text-star/90">Lecturas enfocadas en decisiones, vínculos y procesos personales.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true"></span>
+            <span class="text-sm text-star/90">Sin predicciones absolutas: herramientas para que decidas tú.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true"></span>
+            <span class="text-sm text-star/90">Confidencialidad total y trato cercano, por videollamada o audio.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- LECTURAS -->
+  <section id="lecturas" class="scroll-mt-nav border-t border-gold/10 bg-night py-24">
+    <div class="mx-auto max-w-6xl px-5">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="mb-3 text-xs font-medium uppercase tracking-[0.4em] text-goldsoft">Lecturas</p>
+        <h2 class="font-display text-4xl font-semibold text-star sm:text-5xl">Elige tu tirada</h2>
+        <p class="mt-4 text-lg text-ever">Todas se hacen en línea, en vivo. Los valores son de referencia.</p>
+      </div>
+
+      <div class="reveal mt-14 grid gap-6 md:grid-cols-3">
+        <article class="flex flex-col rounded-sm border border-mist bg-veil p-8">
+          <span class="font-display text-3xl text-gold" aria-hidden="true">☾</span>
+          <h3 class="mt-5 font-display text-2xl font-semibold text-star">Carta del día</h3>
+          <p class="mt-1 text-xs uppercase tracking-widest text-ever">15 min</p>
+          <p class="mt-4 flex-1 text-sm leading-relaxed text-ever">Una sola carta para enfocar el día o una decisión concreta.</p>
+          <p class="mt-6 font-display text-2xl text-goldsoft">$12.000</p>
+        </article>
+        <article class="relative flex flex-col rounded-sm border border-gold/50 bg-veil p-8">
+          <span class="absolute right-6 top-6 text-[10px] font-medium uppercase tracking-widest text-gold">Recomendada</span>
+          <span class="font-display text-3xl text-gold" aria-hidden="true">✦</span>
+          <h3 class="mt-5 font-display text-2xl font-semibold text-star">Tirada de tres</h3>
+          <p class="mt-1 text-xs uppercase tracking-widest text-ever">45 min</p>
+          <p class="mt-4 flex-1 text-sm leading-relaxed text-ever">Pasado, presente y futuro para ver el panorama completo.</p>
+          <p class="mt-6 font-display text-2xl text-goldsoft">$28.000</p>
+        </article>
+        <article class="flex flex-col rounded-sm border border-mist bg-veil p-8">
+          <span class="font-display text-3xl text-gold" aria-hidden="true">✶</span>
+          <h3 class="mt-5 font-display text-2xl font-semibold text-star">Cruz completa</h3>
+          <p class="mt-1 text-xs uppercase tracking-widest text-ever">90 min</p>
+          <p class="mt-4 flex-1 text-sm leading-relaxed text-ever">Lectura profunda de 10 cartas para procesos largos o encrucijadas.</p>
+          <p class="mt-6 font-display text-2xl text-goldsoft">$48.000</p>
+        </article>
+      </div>
+
+      <p class="reveal mt-8 text-center text-sm text-ever">
+        ¿Buscas otra cosa? <a href="#contacto" class="text-gold underline underline-offset-4 hover:text-goldsoft">Cuéntame tu caso</a> y vemos qué tirada te sirve.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section id="proceso" class="scroll-mt-nav border-t border-gold/10 bg-deep py-24">
+    <div class="mx-auto max-w-6xl px-5">
+      <div class="reveal max-w-2xl">
+        <p class="mb-3 text-xs font-medium uppercase tracking-[0.4em] text-goldsoft">Cómo funciona</p>
+        <h2 class="font-display text-4xl font-semibold text-star sm:text-5xl">De la reserva a la lectura</h2>
+      </div>
+
+      <ol class="reveal mt-14 grid gap-6 md:grid-cols-4">
+        <li class="border-t border-mist pt-6">
+          <span class="font-display text-3xl text-gold" aria-hidden="true">01</span>
+          <h3 class="mt-3 font-display text-xl font-semibold text-star">Reservas</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ever">Eliges la lectura y el horario que te acomode.</p>
+        </li>
+        <li class="border-t border-mist pt-6">
+          <span class="font-display text-3xl text-gold" aria-hidden="true">02</span>
+          <h3 class="mt-3 font-display text-xl font-semibold text-star">Preparamos</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ever">Defines tu pregunta y te envío indicaciones para la sesión.</p>
+        </li>
+        <li class="border-t border-mist pt-6">
+          <span class="font-display text-3xl text-gold" aria-hidden="true">03</span>
+          <h3 class="mt-3 font-display text-xl font-semibold text-star">Conectamos</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ever">Nos vemos por videollamada o audio y leemos las cartas.</p>
+        </li>
+        <li class="border-t border-mist pt-6">
+          <span class="font-display text-3xl text-gold" aria-hidden="true">04</span>
+          <h3 class="mt-3 font-display text-xl font-semibold text-star">Te queda registro</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ever">Recibes una síntesis escrita de tu lectura por correo.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- DIARIO / BLOG -->
+  <section id="diario" class="scroll-mt-nav border-t border-gold/10 bg-night py-24">
+    <div class="mx-auto max-w-6xl px-5">
+      <div class="reveal flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="mb-3 text-xs font-medium uppercase tracking-[0.4em] text-goldsoft">Diario</p>
+          <h2 class="font-display text-4xl font-semibold text-star sm:text-5xl">Para leer entre sesión y sesión</h2>
+        </div>
+        <a href="#contacto" class="text-sm font-medium text-gold underline underline-offset-4 hover:text-goldsoft">Ver todos los temas</a>
+      </div>
+
+      <div class="reveal mt-14 grid gap-6 md:grid-cols-3">
+        <article class="group overflow-hidden rounded-sm border border-mist bg-veil">
+          <img
+            src="https://images.pexels.com/photos/36789977/pexels-photo-36789977.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Cartas de tarot dispuestas a la luz de una vela"
+            loading="lazy"
+            class="aspect-[16/10] w-full object-cover transition duration-500 group-hover:opacity-90" />
+          <div class="p-6">
+            <p class="text-xs uppercase tracking-widest text-ever">Interpretación · 4 min</p>
+            <h3 class="mt-3 font-display text-xl font-semibold text-star">Qué hacer cuando dos cartas te confunden</h3>
+          </div>
+        </article>
+        <article class="group overflow-hidden rounded-sm border border-mist bg-veil">
+          <img
+            src="https://images.pexels.com/photos/30160855/pexels-photo-30160855.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Carta de tarot junto a una vela y cuentas"
+            loading="lazy"
+            class="aspect-[16/10] w-full object-cover transition duration-500 group-hover:opacity-90" />
+          <div class="p-6">
+            <p class="text-xs uppercase tracking-widest text-ever">Arcanos · 6 min</p>
+            <h3 class="mt-3 font-display text-xl font-semibold text-star">La Luna en tarot: intuición y miedo</h3>
+          </div>
+        </article>
+        <article class="group overflow-hidden rounded-sm border border-mist bg-veil">
+          <img
+            src="https://images.pexels.com/photos/3088369/pexels-photo-3088369.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Cartas de tarot variadas sobre una mesa"
+            loading="lazy"
+            class="aspect-[16/10] w-full object-cover transition duration-500 group-hover:opacity-90" />
+          <div class="p-6">
+            <p class="text-xs uppercase tracking-widest text-ever">Guía · 3 min</p>
+            <h3 class="mt-3 font-display text-xl font-semibold text-star">Cómo formular una buena pregunta</h3>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="scroll-mt-nav relative isolate overflow-hidden border-t border-gold/10 bg-deep py-24">
+    <div class="pointer-events-none absolute right-0 top-10 hidden font-display text-[10rem] leading-none text-mist/25 select-none xl:block" aria-hidden="true">☾</div>
+    <div class="mx-auto grid max-w-6xl gap-12 px-5 lg:grid-cols-2">
+      <div class="reveal">
+        <p class="mb-3 text-xs font-medium uppercase tracking-[0.4em] text-goldsoft">Reserva</p>
+        <h2 class="font-display text-4xl font-semibold text-star sm:text-5xl">Cuéntame qué te trae</h2>
+        <p class="mt-5 text-lg leading-relaxed text-ever">
+          Déjame tus datos y tu pregunta general. Te respondo en menos de 24 horas con
+          los horarios disponibles y la tirada que mejor te sirve.
+        </p>
+
+        <div class="mt-8 space-y-4 text-sm">
+          <p class="flex items-center gap-3 text-star">
+            <span class="grid h-9 w-9 place-items-center rounded-full border border-gold/40 text-gold" aria-hidden="true">☾</span>
+            <a href="https://wa.me/56961234567" target="_blank" rel="noopener" class="hover:text-gold">WhatsApp directo</a>
+          </p>
+          <p class="flex items-center gap-3 text-star">
+            <span class="grid h-9 w-9 place-items-center rounded-full border border-gold/40 text-gold" aria-hidden="true">✉</span>
+            <a href="mailto:hola@esenciasarcanas.demo" class="hover:text-gold">hola@esenciasarcanas.demo</a>
+          </p>
+          <p class="flex items-center gap-3 text-star">
+            <span class="grid h-9 w-9 place-items-center rounded-full border border-gold/40 text-gold" aria-hidden="true">✦</span>
+            <span>Lunes a sábado · 10:00 a 20:00</span>
+          </p>
+        </div>
+      </div>
+
+      <form id="contact-form" class="reveal rounded-sm border border-mist bg-veil p-7 sm:p-9">
+        <fieldset class="grid gap-5 sm:grid-cols-2">
+          <legend class="mb-2 sr-only">Reserva de lectura</legend>
+          <label class="block">
+            <span class="mb-1.5 block text-xs font-medium uppercase tracking-widest text-ever">Tu nombre</span>
+            <input name="nombre" required class="w-full rounded-sm border border-mist bg-night px-4 py-3 text-star placeholder:text-ever/50 focus:border-gold focus:outline-none" placeholder="Ej.: Camila Rojas" />
+          </label>
+          <label class="block">
+            <span class="mb-1.5 block text-xs font-medium uppercase tracking-widest text-ever">Correo</span>
+            <input name="correo" type="email" required class="w-full rounded-sm border border-mist bg-night px-4 py-3 text-star placeholder:text-ever/50 focus:border-gold focus:outline-none" placeholder="tucorreo@ejemplo.com" />
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="mb-1.5 block text-xs font-medium uppercase tracking-widest text-ever">Tirada de interés</span>
+            <select name="tirada" class="w-full rounded-sm border border-mist bg-night px-4 py-3 text-star focus:border-gold focus:outline-none">
+              <option>Carta del día</option>
+              <option>Tirada de tres</option>
+              <option>Cruz completa</option>
+              <option>Aún no lo sé, ayúdame a elegir</option>
+            </select>
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="mb-1.5 block text-xs font-medium uppercase tracking-widest text-ever">Tu pregunta o tema</span>
+            <textarea name="mensaje" rows="4" class="w-full rounded-sm border border-mist bg-night px-4 py-3 text-star placeholder:text-ever/50 focus:border-gold focus:outline-none" placeholder="Cuéntame en pocas líneas qué te gustaría mirar con las cartas."></textarea>
+          </label>
+        </fieldset>
+        <button type="submit" class="mt-7 w-full rounded-sm bg-gold px-8 py-3.5 font-medium text-night transition hover:bg-goldsoft">Enviar solicitud de reserva</button>
+        <p id="form-success" class="mt-4 hidden items-center justify-center gap-2 rounded-sm border border-gold/40 bg-gold/10 p-4 text-sm font-medium text-goldsoft" role="status">
+          Gracias por escribir. Te respondo en menos de 24 horas con los horarios disponibles.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-gold/10 bg-night">
+    <div class="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-xs text-ever sm:flex-row sm:items-center sm:justify-between">
+      <p>© <span id="year">2026</span> Esencias Arcanas · Mockup sin fines comerciales.</p>
+      <p class="font-display text-base tracking-widest text-gold/70" aria-hidden="true">☾ ✦ ✶</p>
+      <p class="text-ever/70">Video e imágenes: Pexels</p>
+    </div>
+  </footer>
+
+  <script>
+    // ---- Formulario demo (sin backend) ----
+    (function () {
+      const form = document.getElementById('contact-form');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const ok = document.getElementById('form-success');
+          if (ok) { ok.classList.remove('hidden'); ok.classList.add('flex'); }
+        });
+      }
+    })();
+
+    // ---- Año dinámico ----
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ---- Fondo: respetar prefers-reduced-motion (detiene el video) ----
+    (function () {
+      const video = document.getElementById('bg-video');
+      if (!video) return;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+      function apply() {
+        if (reduce.matches) {
+          video.pause();
+          video.style.display = 'none';
+        } else {
+          video.style.display = '';
+          const p = video.play();
+          if (p && typeof p.catch === 'function') { p.catch(function () {}); }
+        }
+      }
+      apply();
+      if (typeof reduce.addEventListener === 'function') { reduce.addEventListener('change', apply); }
+    })();
+
+    // ---- Reveal al hacer scroll (con fallback) ----
+    (function () {
+      const items = document.querySelectorAll('.reveal');
+      if (!items.length) return;
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+      const obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+      items.forEach(function (el) { obs.observe(el); });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+
+# Harness (gestionado; refrescar con install.ps1 -Update)
+harness/skills/
+harness/.harness-backup/
+

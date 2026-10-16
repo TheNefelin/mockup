@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal estilo DOS - Efecto Máquina de Escribir</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+        
+        .terminal-header {
+            background-color: #2c2c2c;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+        
+        .terminal-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .close {
+            background-color: #ff5f56;
+        }
+        
+        .minimize {
+            background-color: #ffbd2e;
+        }
+        
+        .maximize {
+            background-color: #27c93f;
+        }
+        
+        .terminal-title {
+            color: #b3b3b3;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        
+        .terminal-body {
+            padding: 20px;
+            height: 400px;
+            overflow-y: auto;
+            color: #00ff00;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        
+        .terminal-input {
+            display: flex;
+            align-items: center;
+            padding: 0 20px 20px;
+            color: #00ff00;
+        }
+        
+        .prompt {
+            margin-right: 10px;
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 18px;
+            background-color: #00ff00;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        button {
+            background-color: #00cc00;
+            color: #003300;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 0 5px;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #00ff00;
+        }
+        
+        .dos-text {
+            color: #00ff00;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <div class="terminal-button close"></div>
+                <div class="terminal-button minimize"></div>
+                <div class="terminal-button maximize"></div>
+            </div>
+            <div class="terminal-title">MS-DOS Prompt - Efecto Máquina de Escribir</div>
+        </div>
+        
+        <div class="terminal-body" id="terminalOutput">
+            <div class="dos-text">C:\&gt; Iniciando efecto máquina de escribir...</div>
+        </div>
+        
+        <div class="terminal-input">
+            <span class="prompt">C:\&gt;</span>
+            <span class="cursor"></span>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button id="startBtn">Iniciar</button>
+        <button id="pauseBtn">Pausar</button>
+        <button id="resetBtn">Reiniciar</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const terminalOutput = document.getElementById('terminalOutput');
+            const startBtn = document.getElementById('startBtn');
+            const pauseBtn = document.getElementById('pauseBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            
+            let typingInterval;
+            let isTyping = false;
+            let currentText = '';
+            let textIndex = 0;
+            
+            // Texto para el efecto de máquina de escribir
+            const fullText = `C:\\> Bienvenido al efecto máquina de escribir estilo DOS\n\n` +
+                            `C:\\> Este efecto simula cómo se escribía en las antiguas computadoras\n` +
+                            `C:\\> con interfaz de línea de comandos.\n\n` +
+                            `C:\\> CARACTERÍSTICAS:\n` +
+                            `C:\\> - Escritura carácter por carácter\n` +
+                            `C:\\> - Efecto de cursor parpadeante\n` +
+                            `C:\\> - Estilo visual retro\n` +
+                            `C:\\> - Controles para pausar y reiniciar\n\n` +
+                            `C:\\> Puedes utilizar este efecto para presentaciones, portfolios\n` +
+                            `C:\\> o cualquier proyecto que necesite un toque retro.\n\n` +
+                            `C:\\> ¡Disfruta del viaje nostálgico!`;
+            
+            // Función para iniciar el efecto
+            function startTyping() {
+                if (isTyping) return;
+                
+                isTyping = true;
+                terminalOutput.innerHTML = '';
+                textIndex = 0;
+                currentText = '';
+                
+                typingInterval = setInterval(function() {
+                    if (textIndex < fullText.length) {
+                        // Añadir el siguiente carácter
+                        currentText += fullText.charAt(textIndex);
+                        
+                        // Crear elemento para la línea actual
+                        terminalOutput.innerHTML = '<div class="dos-text">' + currentText + '</div>';
+                        
+                        // Hacer scroll al final
+                        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                        
+                        textIndex++;
+                    } else {
+                        clearInterval(typingInterval);
+                        isTyping = false;
+                    }
+                }, 40); // Velocidad de escritura (milisegundos entre caracteres)
+            }
+            
+            // Función para pausar el efecto
+            function pauseTyping() {
+                if (isTyping) {
+                    clearInterval(typingInterval);
+                    isTyping = false;
+                }
+            }
+            
+            // Función para reiniciar el efecto
+            function resetTyping() {
+                pauseTyping();
+                terminalOutput.innerHTML = '<div class="dos-text">C:\\&gt; Iniciando efecto máquina de escribir...</div>';
+            }
+            
+            // Event listeners para los botones
+            startBtn.addEventListener('click', startTyping);
+            pauseBtn.addEventListener('click', pauseTyping);
+            resetBtn.addEventListener('click', resetTyping);
+            
+            // Iniciar automáticamente al cargar la página
+            setTimeout(startTyping, 1000);
+        });
+    </script>
+</body>
+</html>
