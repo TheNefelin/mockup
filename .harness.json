@@ -1,9 +1,10 @@
 {
-  "schemaVersion": 1,
-  "scope": "local",
-  "rules": true,
-  "skills": [
-    "ui-ux-mockup"
-  ],
-  "harnessVersion": "0.2.0"
+    "schemaVersion":  1,
+    "scope":  "local",
+    "rules":  true,
+    "harnessVersion":  "0.2.0",
+    "skills":  [
+                   "ui-ux-mockup",
+                   "github-actions"
+               ]
 }
