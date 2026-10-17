@@ -18,9 +18,22 @@ openCode; no forman parte del sitio.
 
 ## Publicación
 
-El sitio se sirve con **GitHub Pages desde la raíz del repositorio** (rama `main`,
-carpeta `/`). El despliegue es automático en cada push; solo se habilita una vez
-en *Settings → Pages → Deploy from a branch*. `.nojekyll` desactiva Jekyll.
+El sitio se sirve con **GitHub Pages** usando **GitHub Actions** (OIDC), no una
+rama de despliegue. El workflow `.github/workflows/pages.yml` se dispara con cada
+push a `main` y con `workflow_dispatch`; tiene dos jobs: `build` (checkout →
+`configure-pages` → `upload-pages-artifact`) y `deploy` (`deploy-pages`, con
+`needs: build`). Requiere habilitarlo una vez en *Settings → Pages → Source:
+GitHub Actions*.
+
+Los jobs están separados a propósito: subir el artefacto y desplegarlo en el
+mismo job provoca una condición de carrera conocida (`deploy-pages` lista los
+artefactos antes de que la subida esté visible) que falla de forma intermitente
+con *"No artifacts named github-pages were found"*. Con `needs: build` el
+artefacto ya está finalizado cuando `deploy-pages` lo busca.
+
+`.nojekyll` ya no es relevante en este flujo: con Pages vía Actions no se ejecuta
+Jekyll y `upload-pages-artifact` omite los archivos ocultos por defecto. Se
+conserva por compatibilidad con `robots.txt`/enlaces, no por necesidad.
 
 ## Decisiones técnicas
 
