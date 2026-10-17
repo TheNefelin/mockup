@@ -1,93 +1,25 @@
 # Mockups
 
-Colección de **mockups HTML estáticos** (sin build ni dependencias de servidor).
+Colecci&#243;n de **mockups HTML est&#225;ticos** (sin build ni dependencias de servidor).
 Cada carpeta es un mockup independiente que se abre directamente en el navegador.
 
 > **Mockup demostrativo.** Marcas, textos, precios y contactos son de ejemplo.
-> Los activos (imágenes/video y fuentes) se cargan desde sus CDN, así que requieren internet.
+> Los activos (im&#225;genes/video y fuentes) se cargan desde sus CDN, as&#237; que requieren internet.
 
 ## Sitio publicado
 
-https://`<usuario>`.github.io/`<repo>`/
+https://thenefelin.github.io/mockup/
 
-> Reemplaza `<usuario>` y `<repo>` por los reales una vez publicado en GitHub Pages
-> (y quita el backtick). Si aún no está publicado, elimina esta sección.
+> El sitio se publica desde la ra&#237;z del repositorio con GitHub Actions. Cada git push a main despliega autom&#225;ticamente.
 
 ## Mockups
 
-### DRAKAR — Transporte y mudanzas
+### DRAKAR &#8212; Transporte y mudanzas
 
-| Mockup | Carpeta | Dirección de arte |
+| Mockup | Carpeta | Direcci&#243;n de arte |
 | --- | --- | --- |
-| Drakar Cinematic | [`drakar/drakar-cinematic/`](drakar/drakar-cinematic/) | Hero fotográfico de puerto nocturno; oscuro + ámbar |
-| Drakar Landing | [`drakar/drakar-landing/`](drakar/drakar-landing/) | Landing de conversión mínima (3 campos); identidad noche/ámbar |
-| Drakar Logística | [`drakar/drakar-logistica/`](drakar/drakar-logistica/) | Clara y terrestre, sin metáfora marítima |
-| Drakar Nocturno | [`drakar/drakar-nocturno/`](drakar/drakar-nocturno/) | Hero con **video** (ruta nocturna); noche + ámbar |
-| Drakar Claro | [`drakar/drakar-claro/`](drakar/drakar-claro/) | Luminosa de señalética/obra; papel cálido + naranja de señal |
-
-### Esencias Arcanas — Tarot en línea
-
-| Mockup | Carpeta | Dirección de arte |
-| --- | --- | --- |
-| Esencias Arcanas | [`tarot/tarot-lunaria/`](tarot/tarot-lunaria/) | Hero cósmico: cielo estrellado, índigo-negro + dorado |
-| Esencias Arcanas Ritual | [`tarot/tarot-ritual/`](tarot/tarot-ritual/) | Mesa de velas, baraja y humo; carbón + cobre + verde botella |
-
-### Varios
-
-| Mockup | Carpeta | Descripción |
-| --- | --- | --- |
-| Consola DOS | [`console/`](console/) | Terminal estilo DOS con efecto máquina de escribir |
-
-## Vista previa local
-
-Abre `index.html` (en la raíz o en cualquier carpeta) con el navegador. Para servirlo
-como lo haría Pages:
-
-```bash
-python -m http.server 8000
-# luego visita http://localhost:8000/
-```
-
-## Publicación (GitHub Pages)
-
-El sitio se publica **desde la raíz del repositorio** (rama `main`, carpeta `/`).
-
-- Se habilita una sola vez en GitHub: **Settings → Pages → Source: Deploy from a branch
-  → `main` / `root` (/)**.
-- Desde ahí **el despliegue es automático**: cada `git push` a `main` reconstruye y
-  republica el sitio. No hace falta escribir un workflow de GitHub Actions.
-- **`.nojekyll`** desactiva el procesamiento de Jekyll para que los archivos se sirvan
-  tal cual.
-- **`robots.txt`** (`Disallow: /`) mantiene los mockups fuera de los buscadores.
-
-Para desplegar el sitio en el futuro (una vez configurado):
-
-```bash
-git add .
-git commit -m "Actualiza mockups"
-git push
-```
-
-## Estructura
-
-```
-mockup/
-├─ index.html            # índice publicado (lista los mockups)
-├─ 404.html              # página de error propia
-├─ robots.txt            # bloquea indexación
-├─ .nojekyll             # desactiva Jekyll en Pages
-├─ drakar/
-│  ├─ drakar-cinematic/
-│  ├─ drakar-landing/
-│  ├─ drakar-logistica/
-│  ├─ drakar-nocturno/
-│  └─ drakar-claro/
-├─ tarot/
-│  ├─ tarot-lunaria/
-│  └─ tarot-ritual/
-├─ console/
-└─ harness/              # reglas y skills de openCode
-```
-
-Cada carpeta de mockup contiene su `index.html` y, cuando aplica, un
-`DEVELOPMENT.md` con las decisiones de diseño de esa variante.
+| Drakar Cinematic | [drakar/drakar-cinematic/](drakar/drakar-cinematic/) | Hero fotogr&#225;fico de puerto nocturno; oscuro + &#225;mbar |
+| Drakar Landing | [drakar/drakar-landing/](drakar/drakar-landing/) | Landing de conversi&#243;n m&#237;nima (3 campos); identidad noche/&#225;mbar |
+| Drakar Log&#237;stica | [drakar/drakar-logistica/](drakar/drakar-logistica/) | Clara y terrestre, sin met&#225;fora mar&#237;tima |
+| Drakar Nocturno | [drakar/drakar-nocturno/](drakar/drakar-nocturno/) | Hero con **video** (ruta nocturna); noche + &#225;mbar |
+| Drakar Claro | [drakar/drakar-claro/](drakar/drakar-claro/) | Luminosa de se&#241;al&#233;tica/obra; papel c&#225;lido + naranja de se&#241;al |
